@@ -29,4 +29,5 @@ runs:
   using: "composite"
   steps:
     - name: Run MDCE
+      shell: bash
       run: ./mdce.py {{ inputs.args }}
