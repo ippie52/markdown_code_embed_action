@@ -4,18 +4,29 @@ branding:
   color: purple
   icon: file-text
 
-on: 
-  workflow_dispatch:
-  pull_request:
-    branches: 
-      - main
-      - master
-      
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run MDCE
-        run: ./mdce.py -q
+inputs:
+  args:
+    description: |
+      Embed code within markdown documents
+
+      options:
+        -h, --help            show this help message and exit
+        -d directory [directory ...], --directories directory [directory ...]
+                              Directories to be scanned for README.md files
+        -f file name [file name ...], --files file name [file name ...]
+                              Files to be scanned
+        -s, --sub             Checks all sub-directories
+        -b, --backup          Backs up the original file, appending ".old" to the
+                              file name
+        -g, --ignore-git      Exit value ignores changes in git
+        -u, --ignore-untracked
+                              Exit value ignores changes to untracked files
+        -q, --quiet           Reduces the number of messages printed
+    required: false
+    default: "-h"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Run MDCE
+      run: ./mdce.py {{ inputs.args }}
