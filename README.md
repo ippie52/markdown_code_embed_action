@@ -31,7 +31,7 @@ jobs:
 The above is embedded using this script and reflects the contents of the file [example](example). This is a fairly straight forward action, which runs a job on any pull request into the `main` branch.
 
 The arguments provided by 
-```yml:example [17-18]
+```yaml:example [17-18]
         with: 
           args: '-s'
 ```
