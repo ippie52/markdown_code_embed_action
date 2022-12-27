@@ -23,7 +23,7 @@ inputs:
                               Exit value ignores changes to untracked files
         -q, --quiet           Reduces the number of messages printed
     required: false
-    default: "-h"
+    default: ""
 
 runs:
   using: "composite"
