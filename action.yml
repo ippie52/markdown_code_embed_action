@@ -1,4 +1,4 @@
-name: 'Markdown Code Embed (MDCE)'
+name: 'Markdown Code Embed'
 description: Embeds code into README with MDCE
 branding:
   color: purple
