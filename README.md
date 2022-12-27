@@ -1,10 +1,21 @@
 # Markdown Code Embed (Action)
 
+## Contents
+- [Introduction](#introduction)
+- [Adding Action To Your Repository](#adding-action-to-your-repository)
+- [Quick Syntax Guide](#quick-syntax-guide)
+	- [Embedding Files And Contents](#embedding-files-and-contents)
+	- [Embedding Process Output](#embedding-process-output)
+- [More Info](#more-info)
 
 ## Introduction
 This repository provides the public action for the [Markdown Code Embed](https://github.com/ippie52/markdown_code_embed/) script. Full documentation on using the script directly, with examples can be found there. 
 
 Some examples here are taken from there with less context, however I would recommend going over to the the main repository for full documentation on how to add code to your markdown files.
+
+This is a lightweight means of embedding live code from your repository into your markdown documentation. 
+
+This action reports issues when it finds changes to your documentation, indicating that it may be out of date. These changes should at very least be checked to make sure that the documentation is correct, and be updated as part of the commit.
 
 ## Adding Action To Your Repository
 A quick example:
@@ -24,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Markdown Code Embed
-        uses: ippie52/markdown_code_embed_action@0.1.5
+        uses: ippie52/markdown_code_embed_action@1.0
         with: 
           args: '-s'
 ```

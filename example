@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Markdown Code Embed
-        uses: ippie52/markdown_code_embed_action@0.1.5
+        uses: ippie52/markdown_code_embed_action@1.0
         with: 
           args: '-s'
