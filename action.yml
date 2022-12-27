@@ -30,4 +30,4 @@ runs:
   steps:
     - name: Run MDCE
       shell: bash
-      run: ./mdce.py {{ inputs.args }}
+      run:  ${{ github.action_path }}/mdce.py {{ inputs.args }}
