@@ -1,0 +1,21 @@
+name: 'Markdown Code Embed (MDCE)'
+description: Embeds code into README with MDCE
+branding:
+  color: purple
+  icon: file-text
+
+on: 
+  workflow_dispatch:
+  pull_request:
+    branches: 
+      - main
+      - master
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run MDCE
+        run: ./mdce.py -q
