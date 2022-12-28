@@ -28,6 +28,9 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Update Sub-modules
+      shell: bash
+      run: git submodule update --init
     - name: Run MDCE
       shell: bash
       run:  ${{ github.action_path }}/markdown_code_embed/mdce.py ${{ inputs.args }}
