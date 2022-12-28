@@ -24,10 +24,20 @@ inputs:
         -q, --quiet           Reduces the number of messages printed
     required: false
     default: ""
+  version:
+    description: The version of MDCE to be used
+    required: false
+    default: "1.1.1"
 
 runs:
   using: "composite"
   steps:
+    - name: Clone MDCE and get version
+      shell: bash
+      run: |
+        git clone https://github.com/ippie52/markdown_code_embed.git && 
+        cd markdown_code_embed && 
+        git checkout ${{ inputs.version }}
     - name: Run MDCE
       shell: bash
-      run:  ${{ github.action_path }}/mdce.py ${{ inputs.args }}
+      run:  ./markdown_code_embed/mdce.py ${{ inputs.args }}
