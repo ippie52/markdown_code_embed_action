@@ -1,0 +1,3 @@
+[submodule "markdown_code_embed"]
+	path = markdown_code_embed
+	url = https://github.com/ippie52/markdown_code_embed.git
