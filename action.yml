@@ -30,10 +30,7 @@ runs:
   steps:
     - name: Update Sub-modules
       shell: bash
-      run: cd ${{ github.action_path }} && git submodule update --init
-    - name: List Files
-      shell: bash
-      run: ls -Rath ${{ github.action_path }}
+      run: cd ${{ github.action_path }} && ls -Rath && git submodule update --init
     - name: Run MDCE
       shell: bash
       run:  ${{ github.action_path }}/markdown_code_embed/mdce.py ${{ inputs.args }}
