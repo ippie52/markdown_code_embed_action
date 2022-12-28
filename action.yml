@@ -30,7 +30,7 @@ runs:
   steps:
     - name: Update Sub-modules
       shell: bash
-      run: git submodule update --init
+      run: cd ${{ github.action_path }} && git submodule update --init
     - name: List Files
       shell: bash
       run: ls -Rath ${{ github.action_path }}
