@@ -49,9 +49,10 @@ The arguments provided by
 are simply passed through to the `mdce.py` script, as shown below. Here, we're simply passing the `--sub` option to check through all sub-directories.
 
 Usage of the `mdce.py` script:
-```text:run:mdce.py <["-h"]>
+```text:run:markdown_code_embed/mdce.py <["-h"]>
 usage: EmbedCode [-h] [-d directory [directory ...]]
-                 [-f file name [file name ...]] [-s] [-b] [-g] [-u] [-q]
+                 [-f file_name [file_name ...]] [-e directory [directory ...]]
+                 [-i] [-s] [-b] [-g] [-u] [-q]
 
 Embed code within markdown documents
 
@@ -59,8 +60,12 @@ options:
   -h, --help            show this help message and exit
   -d directory [directory ...], --directories directory [directory ...]
                         Directories to be scanned for README.md files
-  -f file name [file name ...], --files file name [file name ...]
+  -f file_name [file_name ...], --files file_name [file_name ...]
                         Files to be scanned
+  -e directory [directory ...], --exclude directory [directory ...]
+                        Directories to exclude from searching
+  -i, --include-self    Includes the directory (and sub-directories with -s)
+                        of this script when parsing
   -s, --sub             Checks all sub-directories
   -b, --backup          Backs up the original file, appending ".old" to the
                         file name
