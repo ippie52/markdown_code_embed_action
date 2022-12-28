@@ -33,7 +33,7 @@ runs:
       run: git submodule update --init
     - name: List Files
       shell: bash
-      run: ls -Rath
+      run: ls -Rath ${{ github.action_path }}
     - name: Run MDCE
       shell: bash
       run:  ${{ github.action_path }}/markdown_code_embed/mdce.py ${{ inputs.args }}
