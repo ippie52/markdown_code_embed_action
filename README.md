@@ -35,21 +35,21 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Markdown Code Embed
-        uses: ippie52/markdown_code_embed_action@1.0
+        uses: ippie52/markdown_code_embed_action@latest
         with: 
           args: '-s'
 ```
 The above is embedded using this script and reflects the contents of the file [example](example). This is a fairly straight forward action, which runs a job on any pull request into the `main` branch.
 
 The arguments provided by 
-```yaml:example [17-18]
-        with: 
-          args: '-s'
+```yaml:example -s17 -e18 -i s2
+with: 
+  args: '-s'
 ```
 are simply passed through to the `mdce.py` script, as shown below. Here, we're simply passing the `--sub` option to check through all sub-directories.
 
 Usage of the `mdce.py` script:
-```text:run:markdown_code_embed/mdce.py <["-h"]>
+```text:markdown_code_embed/mdce.py -r -a "'-h'"
 usage: EmbedCode [-h] [-d directory [directory ...]]
                  [-f file_name [file_name ...]] [-e directory [directory ...]]
                  [-i] [-s] [-b] [-g] [-u] [-q]
@@ -91,13 +91,13 @@ General rules:
 
 Syntax:
 ````markdown
-```language:path/to/file [start_line-end_line]`
+```language:path/to/file -s start_line -e end_line
 ```
 ````
 
 Example:
 ````markdown
-``` python:mdce.py [2-6]
+``` python:mdce.py -s 2 -e 6
 ```
 ````
 
@@ -112,13 +112,13 @@ Additional rules for process captures:
 
 
 ````markdown
-```language:run:path/to/file <["arg1", "arg2", "arg3"]>`
+```language:path/to/file -r -a "arg1 arg2 'arg 3'"
 ```
 ````
 
 Example:
 ````markdown
-```text:run:/usr/bin/ls <["."]>
+```text:/usr/bin/ls -r -a "'.'"
 ```
 ````
 
