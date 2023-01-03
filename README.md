@@ -86,7 +86,7 @@ General rules:
 - Must start with at least three back-ticks.
 - Must have a language/syntax type ([here](https://github.com/jincheng9/markdown_supported_languages) is a decent list).
 - Relative file name placed after the syntax, following a colon.
-- Line number range, if required, in square brackets with either a colon `:` or dash `-` separating the start and end lines. A single value is also accepted.
+- Line number range, if required, provided using the `-s` (`--start`) and `-e` (`--end`) options. A single line is provided by setting the start line only.
 - Must be a closing block with greater than or equal to the number of back-ticks in the opening block.
 
 Syntax:
@@ -105,18 +105,20 @@ Example:
 
 Additional rules for process captures:
 - General rules above must be met
-- Keyword `run` must appear after the syntax and a colon, and must be followed by a colon before the path of the file to be executed
-- Arguments, if required, must be within chevrons and in JSON format (see [this section](#embed-process-output) for more details)
+- Option `-r` appear in the options list.
+- Arguments, if required, must be provided after the `-a` option as follows:
+  - Single arguments must be in two different sets of quotation marks, e.g. "'argument'", to prevent the outermost quotation marks being stripped.
+  - Multiple arguments must appear in quotation marks, but additional (different) quotations marks are only required to preserve white space, e.g. "arg1 'arg 2' arg3".
 - Line numbers, if set, will be ignored
-- Only data sent to `stdout` will be recorded. For `stderr`, a wrapper will be required.
+- Only data sent to `stdout` will be recorded. For `stderr`, pipe the output via an argument or wrapper script.
 
+Examples:
 
 ````markdown
 ```language:path/to/file -r -a "arg1 arg2 'arg 3'"
 ```
 ````
 
-Example:
 ````markdown
 ```text:/usr/bin/ls -r -a "'.'"
 ```
